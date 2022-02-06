@@ -13,14 +13,15 @@ namespace aspNetCoreMVCPractice
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Run();          // Creates IHostBuilder to define how IHost will be built
+                                            // .Run() is when we start listening for HTTP requests
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
+                .ConfigureWebHostDefaults(webBuilder =>     // configures Kestrel to listen to HTTP requests
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>();       // Startup defines most of project's configuration
                 });
     }
 }
